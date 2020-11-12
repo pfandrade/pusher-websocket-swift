@@ -56,9 +56,10 @@ open class WebSocket: WebSocketConnection {
     // MARK: - WebSocketConnection conformance
 
     func connect() {
-        if connection == nil {
-            connection = NWConnection(to: endpoint, using: parameters)
-        }
+        connection?.stateUpdateHandler = nil
+        connection?.cancel()
+        
+        connection = NWConnection(to: endpoint, using: parameters)
         intentionalDisconnect = false
         connection?.stateUpdateHandler = stateDidChange(to:)
         listen()
