@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.exclude_files = ['Sources/PusherSwiftWithEncryption-Only/**/*.swift']
 
   s.dependency 'ReachabilitySwift', '~> 5.0'
-  s.dependency 'NWWebSocket', '~> 0.3.0'
+  s.dependency 'NWWebSocket', :git => 'https://github.com/pfandrade/NWWebSocket', :commit => '45c363ba0b30a995607679f8e7a22c20c6d13910'
 
   s.ios.deployment_target = '13.0'
   s.osx.deployment_target = '10.15'
