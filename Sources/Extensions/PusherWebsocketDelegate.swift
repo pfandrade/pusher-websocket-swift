@@ -219,5 +219,6 @@ extension PusherConnection: WebSocketConnectionDelegate {
                                                              context: """
             Error (code: \((error as NSError).code)): \(error.localizedDescription)
             """))
+        self.webSocketDidDisconnect(connection: connection, closeCode: .applicationCode(UInt16((error as NSError).code)), reason: nil)
     }
 }
